@@ -1,35 +1,23 @@
-# Svelte for Atom
+# Language Svelte
 
-Provides syntax highlighting and rich intellisense for Svelte components in Atom, utilising the [svelte language server](https://github.com/UnwrittenFun/svelte-language-server).
+Provides syntax highlighting for Svelte Components, directives and template blocks in Atom.
+
+Initial extracted grammar from [ide-svelte](https://github.com/sveltejs/svelte-atom), by [UnwrittenFun](https://github.com/UnwrittenFun).
 
 ## Features
 
--   Svelte
-    -   Diagnostic messages for warnings and errors
-    -   Support for svelte preprocessors that provide source maps
--   HTML
-    -   Hover info
-    -   Autocompletions
-    -   [Emmet](https://emmet.io/)
-    -   Formatting
-    -   Symbols in Outline panel
--   CSS / SCSS / LESS
-    -   Diagnostic messages for syntax and lint errors
-    -   Hover info
-    -   Autocompletions
-    -   Formatting (via [prettier](https://github.com/prettier/prettier))
-    -   [Emmet](https://emmet.io/)
-    -   Color highlighting and color picker
-    -   Symbols in Outline panel
--   TypeScript / JavaScript
-    -   Diagnostics messages for syntax and semantic errors
-    -   Hover info
-    -   Formatting (via [prettier](https://github.com/prettier/prettier))
-    -   Symbols in Outline panel
+... Svelte syntax highlighting without the advanced IDE ...
 
-More features coming soon.
+## Why?...
 
-## See Also
+I like getting color in my code. I even get distracted when there is syntax not being colored! Creating syntax themes are one thing, creating or contributing to a grammar gives the possibility to add more detailed scopes. Adding more squares to paint in! 👨‍🎨 On top of that, creating my own package gives me full control. 🤓
 
--   [Svelte Language Server](https://github.com/UnwrittenFun/svelte-language-server)
--   [Svelte VS Code](https://github.com/UnwrittenFun/svelte-vscode)
+## Roadmap to v1.0.0
+
+- [ ] Refinement to scope naming, using naming conventions from [Sublime](https://www.sublimetext.com/docs/3/scope_naming.html) and [TextMate](https://macromates.com/manual/en/language_grammars#naming_conventions).
+
+  - [ ] Add support scopes on svelte specific stuff; (`svelte:xxx`, `{@html|debug}` tags, customized handlebar templating blocks `{#if} {:else}`, naming some)
+
+  - [ ] Add / duplicate the nice tag scope naming refinment from language-html (including `text.html.basic` top-level works but may overwrite with svelte scopes)
+
+- [ ] Tree sitter Svelte... This seems to be a bit more advanced stuff...
