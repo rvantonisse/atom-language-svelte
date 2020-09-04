@@ -4,14 +4,21 @@
 
 {#if paragraph}
   <p class="">{@html paragraph}</p>
+
 {:else if Svelte}
   <p>There is no para&shy;graph...But here is, ...</p>
   <Svelte>!
 {/if}
 
 {#each items as item}
-  <svelte:component this={item}>
-{:else if item == Svelte}
+
+  {#if item.props}
+    <svelte:component this={item}>
+  {:else}
+    <p>“{ item }” may just be a plain string.</p>
+  {/if}
+
+{:else}
   <Svelte on:click>
 {/each}
 
@@ -34,6 +41,8 @@
 
   export let paragraph = 'Hello Svelte';
   export let items = [];
+
+  const Immovable = 'Flex 💪';
 
   $: withName = `Rvantonisse says: ${paragraph}`;
 </script>
