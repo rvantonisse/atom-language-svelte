@@ -1,8 +1,8 @@
 # Language Svelte
 
-Provides syntax highlighting for Svelte Components, directives and template blocks in Atom.
+Provides syntax highlighting for Svelte Components, directives and other Svelte specific syntax in Atom.
 
-Initial extracted grammar from [ide-svelte](https://github.com/sveltejs/svelte-atom), by [UnwrittenFun](https://github.com/UnwrittenFun).
+Initial extracted grammar from [ide-svelte](https://github.com/sveltejs/svelte-atom), by [UnwrittenFun](https://github.com/UnwrittenFun). If you are looking for IDE support use that instead.
 
 ## Features
 
@@ -19,5 +19,7 @@ I like getting color in my code. I even get distracted when there is syntax not 
   - [ ] Add support scopes on svelte specific stuff; (`svelte:xxx`, `{@html|debug}` tags, customized handlebar templating blocks `{#if} {:else}`, naming some)
 
   - [ ] Add / duplicate the nice tag scope naming refinment from language-html (including `text.html.basic` top-level works but may overwrite with svelte scopes)
+
+- [ ] Snippets? Auto-completion?
 
 - [ ] Tree sitter Svelte... This seems to be a bit more advanced stuff...
