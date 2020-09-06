@@ -2,6 +2,8 @@
   <title>Language Svelte</title>
 </svelte:head>
 
+<svelte:body on:click={handleBodyClick} />
+
 {#if paragraph}
   <p class="">{@html paragraph}</p>
 
