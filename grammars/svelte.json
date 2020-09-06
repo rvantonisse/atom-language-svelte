@@ -1,6 +1,6 @@
 {
-  "name": "Svelte",
-  "scopeName": "source.svelte",
+  "name": "HTML (Svelte)",
+  "scopeName": "text.html.svelte",
   "fileTypes": ["svelte"],
   "patterns": [
     {
