@@ -9,8 +9,11 @@
 
 {:else if Svelte}
   <p>There is no para&shy;graph...But here is, ...</p>
-  <Svelte>!
+  <Svelte />!
 {/if}
+
+<LongComponentName />
+<ComponentWithChildcomponents.Child />
 
 {#each items as item}
 
@@ -21,7 +24,7 @@
   {/if}
 
 {:else}
-  <Svelte on:click>
+  <Svelte on:click { items.length ? 'yes' : 'no' } />
 {/each}
 
 <slot></slot>
@@ -40,6 +43,8 @@
 
 <script context="module">
   import Svelte from './Svelte.svelte';
+  import LongComponentName from './LongComponentName.svelte';
+  import * from './ComponentWithChildcomponents.svelte';
 
   export let paragraph = 'Hello Svelte';
   export let items = [];
