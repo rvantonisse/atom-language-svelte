@@ -25,7 +25,30 @@
       },
       "patterns": [
         {
-          "include": "$self"
+          "include": "#tag_contents"
+        }
+      ]
+    },
+    {
+      "name": "meta.tag.component.svelte",
+      "begin": "(</?)(([A-Z][a-zA-Z]*)+(\\.([A-Z][a-zA-Z]*)+)?)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.type.component.svelte"
+        }
+      },
+      "end": "/?>",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag_contents"
         }
       ]
     },
@@ -83,6 +106,49 @@
         },
         {
           "include": "#operator_keywords"
+        }
+      ]
+    },
+    "svelte_expression": {
+      "name": "meta.braces.svelte",
+      "begin": "{",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.braces.begin.svelte"
+        }
+      },
+      "end": "}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.braces.end.svelte"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    "tag_directives": {},
+    "tag_id_attribute": {},
+    "tag_class_attribute": {},
+    "tag_attributes": {},
+    "tag_contents": {
+      "patterns": [
+        {
+          "include": "#svelte_expression"
+        },
+        {
+          "include": "#tag_directives"
+        },
+        {
+          "include": "#tag_id_attribute"
+        },
+        {
+          "include": "#tag_class_attribute"
+        },
+        {
+          "include": "#tag_attributes"
         }
       ]
     }
