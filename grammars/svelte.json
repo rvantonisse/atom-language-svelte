@@ -4,8 +4,8 @@
   "fileTypes": ["svelte"],
   "patterns": [
     {
-      "begin": "(</?)\\b((svelte)(:)(window|head|body|options|self|component))",
       "name": "meta.tag.svelte",
+      "begin": "(</?)\\b((svelte)(:)(window|head|body|options|self|component))",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
