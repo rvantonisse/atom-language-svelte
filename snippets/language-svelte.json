@@ -1,0 +1,94 @@
+{
+  ".text.html.svelte": {
+    "Svelte if block": {
+      "prefix": "if",
+      "body": "{#if ${1:expression}}\n\t$2\n{/if}",
+      "description": "{#if expression}\n\n{/if}"
+    },
+    "Svelte if else block": {
+      "prefix": "if_else",
+      "body": "{#if ${1:expression}}\n$2\n{:else}\n\t$3\n{/if}",
+      "description": "{#if expression}\n\t...{:else}\n\t...\n{/if}"
+    },
+    "Svelte each block": {
+      "prefix": "each",
+      "body": "{#each ${1:items} as ${2:item}${3:, index}${4: (key)}}\n\t{${2:item}}${5:\n\\{\\:else\\}\n\t}\n{/each}",
+      "description": "{#each items as item, index (key)}\n\t{item}\n[{:else}\n\toptional...]\n{/each}"
+    },
+    "Svelte await block": {
+      "prefix": "await",
+      "body": "{#await ${1:expression}}\n\t$2\n{:then}\n\t$3${4:\n\\{\\:catch\\}\n\t}\n{/await}",
+      "description": "{#await expression}\n\t...\n{:then}\n\t...\n[{:catch}\n\toptional...]\n{/await}"
+    },
+    "Svelte await then block": {
+      "prefix": "await_then",
+      "body": "{#await ${1:expression} then ${2:item}}\n\t{${2:item}}${3:\n\\{\\:catch\\}\n\t}\n{/await}",
+      "description": "{#await expression then item}\n[{:catch}\n\toptional...]\n{/await}"
+    },
+    "Svelte options tag": {
+      "prefix": "options",
+      "body": "<svelte:options $1/>",
+      "description": ""
+    },
+    "Svelte window tag": {
+      "prefix": "window_svelte",
+      "body": "<svelte:window on:${1:event}/>",
+      "description": "Register an event handler on the window object."
+    },
+    "Svelte html tag": {
+      "prefix": "html_svelte",
+      "body": "<svelte:html on:${1:event}/>",
+      "description": "Register an event handler on the html element."
+    },
+    "Svelte body tag": {
+      "prefix": "body_svelte",
+      "body": "<svelte:body on:${1:event}/>",
+      "description": "Register an event handler on the body element."
+    },
+    "Svelte head tag": {
+      "prefix": "head_svelte",
+      "body": "<svelte:head>\n\t$1\n</svelte:head>",
+      "description": "Place or change elements in the document head, like <title>."
+    },
+    "Svelte self tag": {
+      "prefix": "self_svelte",
+      "body": "<svelte:self${1: \\{attribute\\}}>\n\t$2\n</svelte:self>",
+      "description": "Render this component itself recursively."
+    }
+  },
+  ".text.html.svelte .meta.tag, .text.html.svelte .source": {
+    "Svelte if block": {
+      "prefix": "if"
+    },
+    "Svelte if else block": {
+      "prefix": "if_else"
+    },
+    "Svelte each block": {
+      "prefix": "each"
+    },
+    "Svelte await block": {
+      "prefix": "await"
+    },
+    "Svelte await then block": {
+      "prefix": "await_then"
+    },
+    "Svelte options tag": {
+      "prefix": "options"
+    },
+    "Svelte window tag": {
+      "prefix": "window_svelte"
+    },
+    "Svelte html tag": {
+      "prefix": "html_svelte"
+    },
+    "Svelte body tag": {
+      "prefix": "body_svelte"
+    },
+    "Svelte head tag": {
+      "prefix": "head_svelte"
+    },
+    "Svelte self tag": {
+      "prefix": "self_svelte"
+    }
+  }
+}
