@@ -11,6 +11,7 @@ Initial extracted grammar from [ide-svelte](https://github.com/sveltejs/svelte-a
 ... Svelte syntax highlighting without the advanced IDE ...
 
 - Html autocompletion support from atom/language-html
+- Svelte snippets for: {#if}, {#each}, {#await} and `<svelte:tag>`.
 
 ## Why?...
 
