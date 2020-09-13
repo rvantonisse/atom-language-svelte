@@ -1,55 +1,138 @@
+<!--
+ * @component
+ *
+ * # Preview.svelte
+ *
+ * A preview component for all Svelte syntax
+ * -->
+<svelte:options type="">
+
+<svelte:window on:event={handleEvent}>
+
 <svelte:head>
-  <title>Language Svelte</title>
+  <title>Preview.svelte</title>
+  <meta name="description" content="A preview component for all Svelte syntax">
+
+  <link rel="stylesheet" href="/css/Preview.css">
 </svelte:head>
 
-<svelte:body on:click={handleBodyClick} />
+<svelte:body on:event={handleEvent}>
 
-{#if paragraph}
-  <p class="">{@html paragraph}</p>
+<svelte:component this={Component}>
 
-{:else if Svelte}
-  <p>There is no para&shy;graph...But here is, ...</p>
-  <Svelte />!
+<svelte:self prop={value}>
+
+<!-- a regular HTML element -->
+<div class="container">
+  
+  <!-- a component -->
+	<Widget id="Widget" value="{foo ? bar : baz}"/>
+  <Namespace.Widget {...foo}/>
+</div>
+
+{#if expression}
+  {expression}
+{:else if !expression}
+  {!expression}
+{:else}
+  <p>Something else</p>
 {/if}
 
-<LongComponentName />
-<ComponentWithChildcomponents.Child />
-
-{#each items as item}
-
-  {#if item.props}
-    <svelte:component this={item}>
-  {:else}
-    <p>“{ item }” may just be a plain string.</p>
-  {/if}
-
+{#each expression as name, index (key)}
+  <p>{name} {index} - ({key})</p>
 {:else}
-  <Svelte on:click { items.length ? 'yes' : 'no' } />
+  <p>Something else</p>
 {/each}
 
-<slot></slot>
+{#await promise}
+	<!-- promise is pending -->
+	<p>waiting for the promise to resolve...</p>
+{:then value}
+	<!-- promise was fulfilled -->
+	<p>The value is {value}</p>
+{:catch error}
+	<!-- promise was rejected -->
+	<p>Something went wrong: {error.message}</p>
+{/await}
 
-<style>
-  p {
-    margin-bottom: 3em;
-  }
-</style>
+<!--
+ * If you don't care about the pending state,
+ * you can also omit the initial block
+ * -->
+{#await promise then value}
+	<p>The value is {value}</p>
+{/await}
+
+<!-- @html -->
+<div class="blog-post">
+	<h1>{post.title}</h1>
+	{@html post.content}
+</div>
+
+{@debug foo}
+
+
 
 <script>
-  import Svelte from './Svelte.svelte';
+  import Widget from './Widget.svelte';
+	import * from './Namespace.svelte';
 
-  export let paragraph = 'Hello Svelte';
+  export let bar = 'optional default initial value';
+  export let baz = undefined;
+
+  // these are readonly
+	export const thisIs = 'readonly';
+
+	export function greet(name) {
+		alert(`hello ${name}!`);
+	}
+
+	// this is a prop
+	export let format = (n) => n.toFixed(2);
+
+  let className;
+
+	// creates a `class` property, even
+	// though it is a reserved word
+	export { className as class };
+
+	// Values that are passed in as props
+  export let foo;
+
+	// are immediately available
+	console.log({ foo });
+
+  let count = 0;
+
+  function handleClick () {
+    // calling this function will trigger an
+    // update if the markup references `count`
+    count = count + 1;
+  }
+
+  export let title;
+
+  // this will update `document.title` whenever
+  // the `title` prop changes
+  $: document.title = title;
+
+  $: {
+    console.log(`multiple statements can be combined`);
+    console.log(`the current title is ${title}`);
+  }
+
+  export let num;
+
+  // we don't need to declare `squared` and `cubed`
+  // — Svelte does it for us
+  $: squared = num * num;
+  $: cubed = squared * num;
 </script>
 
 <script context="module">
-  import Svelte from './Svelte.svelte';
-  import LongComponentName from './LongComponentName.svelte';
-  import * from './ComponentWithChildcomponents.svelte';
+  export function someExportedFunction(args) {
+    const { one, two } = args;
 
-  export let paragraph = 'Hello Svelte';
-  export let items = [];
-
-  const Immovable = 'Flex 💪';
-
-  $: withName = `Rvantonisse says: ${paragraph}`;
+    return one + two;
+  }
 </script>
