@@ -18,13 +18,13 @@
 
 <svelte:body on:event={handleEvent}>
 
-<svelte:component this={Component}>
+<svelte:component {value} title={Component} bind:group={Component}>
 
 <svelte:self prop={value}>
 
 <!-- a regular HTML element -->
-<div class="container">
-  
+<div class="container" class:focus={isFocussed}>
+
   <!-- a component -->
 	<Widget id="Widget" value="{foo ? bar : baz}"/>
   <Namespace.Widget {...foo}/>
@@ -71,7 +71,16 @@
 
 {@debug foo}
 
+<style>
+  :global(div) {
+    color: hotpink;
+  }
 
+  body {
+    color: black;
+    background-color: white;
+  }
+</style>
 
 <script>
   import Widget from './Widget.svelte';
