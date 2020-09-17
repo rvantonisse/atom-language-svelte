@@ -101,17 +101,17 @@
   ],
   "repository": {
     "control_keywords": {
-      "name": "keyword.control.$4.svelte",
-      "match": "((#|:)|(/))\\b(if|each|else|await|then|catch)",
+      "name": "meta.keyword.$4.svelte",
+      "match": "((#|:)|(/))(if|each|else|await|then|catch)\\b",
       "captures": {
-        "1": {
-          "name": "punctuation.definition.keyword.svelte"
-        },
         "2": {
           "name": "punctuation.section.block.$4.begin.svelte"
         },
         "3": {
           "name": "punctuation.section.block.$4.end.svelte"
+        },
+        "4": {
+          "name": "keyword.control.$4.svelte"
         }
       }
     },
