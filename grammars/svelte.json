@@ -30,6 +30,26 @@
       ]
     },
     {
+      "name": "meta.tag.html.svelte",
+      "begin": "(<\\/?)(?=\\w)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.begin.html"
+        }
+      },
+      "end": "\\/?>",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag_contents"
+        }
+      ]
+    },
+    {
       "name": "meta.tag.component.svelte",
       "begin": "(</?)(([A-Z][a-zA-Z]*)+(\\.([A-Z][a-zA-Z]*)+)?)",
       "beginCaptures": {
