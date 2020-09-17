@@ -26,15 +26,23 @@ Syntax naming is done following conventions from [Sublime](https://www.sublimete
 
   - [x] `<svelte:tag>`
 
+  - [x] `<script>`
+
+  - [ ] `<script context="module">`
+
+  - [x] `<style>`
+
+  - [ ] `<style lang="postcss|sass|less">`
+
   - [x] `<Component/>` (tag.component)
 
-  - [ ] Element directives:
+  - [x] Element directives:
 
-    - [ ] on - event directive
-    - [ ] bind - data flow directives
-    - [ ] class - css classes directive
-    - [ ] use - action directive
-    - [ ] transition|animate|in|out - motion directives
+    - [x] on - event directive
+    - [x] bind - data flow directives
+    - [x] class - css classes directive
+    - [x] use - action directive
+    - [x] transition|animate|in|out - motion directives
 
   - [ ] Component directives; on, bind.
 
@@ -45,5 +53,12 @@ Syntax naming is done following conventions from [Sublime](https://www.sublimete
   - [ ] Svelte modules; stores, motion, transition, animation
 
 - [x] Snippets
+
+  - [x] `{#if}`
+  - [x] `{#each}`
+  - [x] `{#await}`
+  - [ ] `<svelte:x>`
+
+  - [ ] Accessibility related (html snippets)
 
 - [ ] Tree sitter Svelte... This seems to be a bit more advanced stuff and might be done in v1.1+.
