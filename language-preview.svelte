@@ -27,7 +27,11 @@
 
   <!-- a component -->
 	<Widget id="Widget" value="{foo ? bar : baz}"/>
-  <Namespace.Widget {...foo}/>
+  <WidgetOther/>
+  <Widget2/>
+  <nameSpace9.widget {...foo}/>
+
+  <otherTag/>
 </div>
 
 {#if expression}
