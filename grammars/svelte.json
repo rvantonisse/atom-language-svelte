@@ -292,6 +292,61 @@
         }
       ]
     },
+    "string_single_quoted": {
+      "name": "string.quoted.single.svelte",
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.svelte"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.svelte"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#svelte_expression"
+        },
+        {
+          "include": "text.html.basic#embedded-code"
+        },
+        {
+          "include": "text.html.basic#character-reference"
+        }
+      ]
+    },
+    "string_double_quoted": {
+      "name": "string.quoted.double.svelte",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.svelte"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.svelte"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#svelte_expression"
+        },
+        {
+          "include": "text.html.basic#embedded-code"
+        },
+        {
+          "include": "text.html.basic#character-reference"
+        }
+      ]
+    },
+    "string_unquoted": {
+      "name": "string.unquoted.svelte"
+    },
     "svelte_expression": {
       "name": "meta.braces.svelte",
       "begin": "{",
@@ -356,6 +411,12 @@
       },
       "end": "(?!\\G)|(?=\\s|/?>)",
       "patterns": [
+        {
+          "include": "#string_double_quoted"
+        },
+        {
+          "include": "#string_single_quoted"
+        },
         {
           "include": "#svelte_expression"
         }
