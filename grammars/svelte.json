@@ -258,11 +258,11 @@
     },
     "tag_entity": {
       "name": "entity.name.tag.html.svelte",
-      "match": "(?<=<|\\/)([a-z]([a-z0-9]+)?)(?=\\s?)"
+      "match": "(?<=<|\\/)([a-z]([a-zA-Z0-9]+)?)(?=\\s?)"
     },
     "tag_class": {
       "name": "entity.name.tag.html.svelte",
-      "match": "(?<=<|\\/|\\.)([A-Z]([a-z]+)?)(?=\\s?)",
+      "match": "(?<=<|\\/|\\.)([A-Z]([a-zA-Z0-9]+)?)(?=\\s?)",
       "captures": {
         "1": {
           "name": "entity.name.class.svelte"
