@@ -23,18 +23,21 @@
 <svelte:self prop={value}>
 
 <!-- a regular HTML element -->
-<div class="container" class:focus={isFocussed}>
+<div class="container" class:focus="{isFocussed}">
 
   <!-- a component -->
 	<Class id="Widget" value="{foo ? bar : baz}"/>
   <LongClass />
   <Class2 />
-  <Namespace.widget {...foo} />
+
+  <Namespace.Class />
+  <namespace.class />
 
   <custom-element />
-  <custoM-elemenT1000 />
+  <custoM-ElemenT1000 />
+  <CustoM-ElemenT2000 />
 
-  <otherTag />
+  <otherTag/>
 </div>
 
 {#if expression}
@@ -56,7 +59,7 @@
 	<p>waiting for the promise to resolve...</p>
 {:then value}
 	<!-- promise was fulfilled -->
-	<p>The value is {value}</p>
+	<p {value}>The value is {value}</p>
 {:catch error}
 	<!-- promise was rejected -->
 	<p>Something went wrong: {error.message}</p>
