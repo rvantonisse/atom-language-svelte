@@ -161,10 +161,36 @@
     },
     {
       "name": "meta.tag.html.svelte",
-      "begin": "(<\\/?)(?=\\w)",
+      "begin": "(<\\/?)([a-z][a-zA-Z0-9])(?=\\s|\\/?>)",
       "beginCaptures": {
-        "0": {
+        "1": {
           "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.html.svelte"
+        }
+      },
+      "end": "\\/?>",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag_contents"
+        }
+      ]
+    },
+    {
+      "name": "meta.tag.custom-element.html.svelte",
+      "begin": "(<\\/?)([a-z](-?(\\w|\\d)+)+)(?=\\s|\\/?>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.custom-element.html.svelte"
         }
       },
       "end": "\\/?>",
@@ -328,15 +354,6 @@
     },
     "tag_contents": {
       "patterns": [
-        {
-          "include": "#tag_namespace"
-        },
-        {
-          "include": "#tag_class"
-        },
-        {
-          "include": "#tag_entity"
-        },
         {
           "include": "#tag_attribute_shorthand"
         },

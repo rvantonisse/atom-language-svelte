@@ -26,12 +26,15 @@
 <div class="container" class:focus={isFocussed}>
 
   <!-- a component -->
-	<Widget id="Widget" value="{foo ? bar : baz}"/>
-  <WidgetOther/>
-  <Widget2/>
-  <nameSpace9.widget {...foo}/>
+	<Class id="Widget" value="{foo ? bar : baz}"/>
+  <LongClass />
+  <Class2 />
+  <Namespace.widget {...foo} />
 
-  <otherTag/>
+  <custom-element />
+  <custoM-elemenT1000 />
+
+  <otherTag />
 </div>
 
 {#if expression}
@@ -68,8 +71,9 @@
 {/await}
 
 <!-- @html -->
-<div class="blog-post">
+<div {id} class="blog-post">
 	<h1>{post.title}</h1>
+
 	{@html post.content}
 </div>
 
@@ -83,6 +87,26 @@
   body {
     color: black;
     background-color: white;
+  }
+
+  @keyframes -global-my-global-animation-name {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes my-local-animation-name {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
   }
 </style>
 
