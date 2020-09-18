@@ -206,6 +206,36 @@
       ]
     },
     {
+      "name": "meta.tag.component.svelte",
+      "begin": "(<\\/?)((\\w(\\w|\\d)*)(\\.))?(([A-Z](\\w|\\d)*)|((?<=\\.)([\\w\\d]+)))(?=\\s|\\/?>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "3": {
+          "name": "entity.name.namespace.svelte"
+        },
+        "5": {
+          "name": "punctuation.accessor.namespace.svelte"
+        },
+        "6": {
+          "name": "entity.name.class.svelte"
+        }
+
+      },
+      "end": "\\/?>",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag_contents"
+        }
+      ]
+    },
+    {
       "name": "meta.block.svelte",
       "begin": "{",
       "beginCaptures": {
