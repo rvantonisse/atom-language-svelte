@@ -161,7 +161,7 @@
     },
     {
       "name": "meta.tag.html.svelte",
-      "begin": "(<\\/?)([a-z][a-zA-Z0-9])(?=\\s|\\/?>)",
+      "begin": "(<\\/?)([a-z][\\w\\d]*)(?=\\s|\\/?>)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -184,7 +184,7 @@
     },
     {
       "name": "meta.tag.custom-element.html.svelte",
-      "begin": "(<\\/?)([a-z](-?(\\w|\\d)+)+)(?=\\s|\\/?>)",
+      "begin": "(<\\/?)(\\w[\\w\\d]*(-[\\w\\d]+)+)(?=\\s|\\/?>)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
