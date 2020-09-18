@@ -141,7 +141,7 @@
           "name": "entity.name.namespace.svelte"
         },
         "4": {
-          "name": "punctuation.separator.svelte"
+          "name": "punctuation.accessor.svelte"
         },
         "5": {
           "name": "entity.name.tag.$5.svelte"
@@ -213,13 +213,13 @@
           "name": "punctuation.definition.tag.begin.html"
         },
         "3": {
-          "name": "entity.name.namespace.svelte"
+          "name": "entity.name.type.svelte"
         },
         "5": {
-          "name": "punctuation.accessor.namespace.svelte"
+          "name": "punctuation.accessor.svelte"
         },
         "6": {
-          "name": "entity.name.class.svelte"
+          "name": "entity.name.type.svelte"
         }
 
       },
