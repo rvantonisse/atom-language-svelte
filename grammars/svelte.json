@@ -237,7 +237,7 @@
     },
     {
       "name": "meta.block.svelte",
-      "begin": "{",
+      "begin": "{(?=#|\\/|:)",
       "beginCaptures": {
         "0": {
           "name": "punctuation.section.block.begin.svelte"
@@ -257,6 +257,9 @@
           "include": "source.js"
         }
       ]
+    },
+    {
+      "include": "#svelte_expression"
     },
     {
       "include": "text.html.basic"
@@ -343,7 +346,7 @@
     },
     "svelte_expression": {
       "name": "meta.braces.svelte",
-      "begin": "{",
+      "begin": "{(?!#|\\/|:|@)",
       "beginCaptures": {
         "0": {
           "name": "punctuation.section.braces.begin.svelte"
