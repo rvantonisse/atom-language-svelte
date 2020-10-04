@@ -1,6 +1,6 @@
 {
   "name": "language-svelte",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Simple syntax highlighting for Svelte.",
   "keywords": [
     "language",
