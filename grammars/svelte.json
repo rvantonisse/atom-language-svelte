@@ -297,19 +297,23 @@
     },
     "string_single_quoted": {
       "name": "string.quoted.single.svelte",
-      "begin": "'",
+      "begin": "(?<=\\=|\\s)'",
       "beginCaptures": {
         "0": {
           "name": "punctuation.definition.string.begin.svelte"
         }
       },
-      "end": "'",
+      "end": "'(?=\\s|\\/?>)",
       "endCaptures": {
         "0": {
           "name": "punctuation.definition.string.end.svelte"
         }
       },
       "patterns": [
+        {
+          "name": "invalid.string.quoted.html.svelte",
+          "match": "'"
+        },
         {
           "include": "#svelte_expression"
         },
@@ -320,19 +324,23 @@
     },
     "string_double_quoted": {
       "name": "string.quoted.double.svelte",
-      "begin": "\"",
+      "begin": "(?<=\\=|\\s)\"",
       "beginCaptures": {
         "0": {
           "name": "punctuation.definition.string.begin.svelte"
         }
       },
-      "end": "\"",
+      "end": "\"(?=\\s|\\/?>)",
       "endCaptures": {
         "0": {
           "name": "punctuation.definition.string.end.svelte"
         }
       },
       "patterns": [
+        {
+          "name": "invalid.string.quoted.html.svelte",
+          "match": "\""
+        },
         {
           "include": "#svelte_expression"
         },
@@ -342,7 +350,40 @@
       ]
     },
     "string_unquoted": {
-      "name": "string.unquoted.svelte"
+      "name": "string.unquoted.svelte",
+      "begin": "(?<=\\=|\\s)(?=[^'\"`=<>\\s])",
+      "end": "(?=\\s|\\/?>)",
+      "patterns": [
+        {
+          "name": "invalid.string.unquoted.html.svelte",
+          "match": "\\S+(['\"`=<]\\S*)+"
+        },
+        {
+          "include": "#svelte_expression"
+        },
+        {
+          "include": "text.html.basic#character-reference"
+        }
+      ]
+    },
+    "string_invalid": {
+      "name": "invalid.string.html.svelte"
+    },
+    "strings": {
+      "patterns": [
+        {
+          "include": "#string_double_quoted"
+        },
+        {
+          "include": "#string_single_quoted"
+        },
+        {
+          "include": "#string_unquoted"
+        },
+        {
+          "include": "#string_invalid"
+        }
+      ]
     },
     "svelte_expression": {
       "name": "meta.braces.svelte",
@@ -406,13 +447,31 @@
           "name": "punctuation.separator.key-value.html.svelte"
         }
       },
-      "end": "(?!\\G)|(?=\\s|/?>)",
+      "end": "(?!\\G)|(?=\\s|\\/?>)",
       "patterns": [
         {
-          "include": "#string_double_quoted"
+          "include": "#strings"
         },
         {
-          "include": "#string_single_quoted"
+          "include": "#svelte_expression"
+        }
+      ]
+    },
+    "tag_attribute": {
+      "name": "meta.attribute.html.svelte",
+      "begin": "(?<=\\s)([^\"'<>\\/=]+)\\s*(=)\\s*",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.other.attribute-name.html.svelte"
+        },
+        "2": {
+          "name": "punctuation.separator.key-value.html.svelte"
+        }
+      },
+      "end": "(?=\\s|\\/?>)",
+      "patterns": [
+        {
+          "include": "#strings"
         },
         {
           "include": "#svelte_expression"
@@ -449,7 +508,7 @@
           "include": "#tag_directives"
         },
         {
-          "include": "text.html.basic#tag-stuff"
+          "include": "#tag_attribute"
         }
       ]
     }
