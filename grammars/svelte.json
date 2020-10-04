@@ -311,9 +311,6 @@
           "include": "#svelte_expression"
         },
         {
-          "include": "text.html.basic#embedded-code"
-        },
-        {
           "include": "text.html.basic#character-reference"
         }
       ]
@@ -335,9 +332,6 @@
       "patterns": [
         {
           "include": "#svelte_expression"
-        },
-        {
-          "include": "text.html.basic#embedded-code"
         },
         {
           "include": "text.html.basic#character-reference"
