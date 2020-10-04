@@ -265,7 +265,7 @@
   "repository": {
     "control_keywords": {
       "name": "meta.keyword.$4.svelte",
-      "match": "((#|:)|(/))(if|each|else|await|then|catch)\\b",
+      "match": "((#|:)|(/))\\b(if|each|else|await|then|catch)\\b",
       "captures": {
         "2": {
           "name": "punctuation.section.block.$4.begin.svelte"
@@ -280,7 +280,7 @@
     },
     "operator_keywords": {
       "name": "keyword.operator.$0.svelte",
-      "match": "as"
+      "match": "\\bas\\b"
     },
     "keywords": {
       "patterns": [
