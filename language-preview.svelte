@@ -37,6 +37,31 @@
   <custoM-ElemenT1000 />
   <CustoM-ElemenT2000 />
 
+  <Class.Attributes
+    id="{id}"
+    class="Class"
+    {shorthand}
+    boolean
+    on:event
+    on:otherEvent={withHandler}
+    bind:property={propertyValue}
+    bind:propShorthand
+    bind:this={Component}
+  />
+
+  <tag-directives
+    on:event|preventDefault|stopPropagation|passive|capture|once|self="{handleEvent}"
+    on:componentEvent
+    bind:property={propertyValue}
+    bind:value
+    bind:group={variable}
+    bind:this={domNode}
+    class:someClass
+    class:otherClass={someBooleanValue}
+    use:action
+    use:action={withParameters}
+  />
+
   <otherTag/>
 </div>
 
