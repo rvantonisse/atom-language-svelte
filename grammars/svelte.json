@@ -432,7 +432,7 @@
     },
     "tag_directives": {
       "name": "meta.attribute.svelte",
-      "begin": "((on|bind|class|use|animate|transition|in|out)\\b(\\:)([a-zA-Z0-9_-]+))\\s*(=)?\\s*",
+      "begin": "(?:\\s*)((on|bind|class|use|animate|transition|in|out)\\b(\\:)([a-zA-Z0-9_-]+))\\s*(=)?\\s*",
       "beginCaptures": {
         "1": {
           "name": "entity.other.attribute-name.$2.svelte"
