@@ -161,7 +161,7 @@
     },
     {
       "name": "meta.tag.html.svelte",
-      "begin": "(<\\/?)([a-z][^\\s]*)(?=\\s*)",
+      "begin": "(<\\/?)([a-z][^\\s<\\/>'\"]*)(?=\\s|\\/?>)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
