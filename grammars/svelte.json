@@ -161,7 +161,7 @@
     },
     {
       "name": "meta.tag.html.svelte",
-      "begin": "(<\\/?)([a-z][\\w\\d]*)(?=\\s|\\/?>)",
+      "begin": "(<\\/?)([a-z][^\\s]*)(?=\\s*)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.tag.begin.html"
@@ -338,10 +338,6 @@
       },
       "patterns": [
         {
-          "name": "invalid.string.quoted.html.svelte",
-          "match": "\""
-        },
-        {
           "include": "#svelte_expression"
         },
         {
@@ -351,23 +347,7 @@
     },
     "string_unquoted": {
       "name": "string.unquoted.svelte",
-      "begin": "(?<=\\=|\\s)(?=[^'\"`=<>\\s])",
-      "end": "(?=\\s|\\/?>)",
-      "patterns": [
-        {
-          "name": "invalid.string.unquoted.html.svelte",
-          "match": "\\S+(['\"`=<]\\S*)+"
-        },
-        {
-          "include": "#svelte_expression"
-        },
-        {
-          "include": "text.html.basic#character-reference"
-        }
-      ]
-    },
-    "string_invalid": {
-      "name": "invalid.string.html.svelte"
+      "match": "[^'\"`=<>\\s]+"
     },
     "strings": {
       "patterns": [
@@ -379,9 +359,6 @@
         },
         {
           "include": "#string_unquoted"
-        },
-        {
-          "include": "#string_invalid"
         }
       ]
     },
@@ -450,37 +427,50 @@
       "end": "(?!\\G)|(?=\\s|\\/?>)",
       "patterns": [
         {
-          "include": "#strings"
+          "include": "#svelte_expression"
         },
         {
-          "include": "#svelte_expression"
+          "include": "#strings"
         }
       ]
     },
     "tag_attribute": {
-      "name": "meta.attribute.html.svelte",
-      "begin": "(?<=\\s)([^\"'<>\\/=]+)\\s*(=)\\s*",
-      "beginCaptures": {
-        "1": {
-          "name": "entity.other.attribute-name.html.svelte"
-        },
-        "2": {
-          "name": "punctuation.separator.key-value.html.svelte"
-        }
-      },
-      "end": "(?=\\s|\\/?>)",
       "patterns": [
         {
-          "include": "#strings"
+          "name": "meta.attribute.html.svelte",
+          "begin": "([^\\s\"'<>\\/=]+)\\s*(=)\\s*",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.other.attribute-name.html.svelte"
+            },
+            "3": {
+              "name": "punctuation.separator.key-value.html.svelte"
+            }
+          },
+          "end": "(?!\\G)|(?=\\s|/?>)",
+          "patterns": [
+            {
+              "include": "#strings"
+            },
+            {
+              "include": "#svelte_expression"
+            }
+          ]
         },
         {
-          "include": "#svelte_expression"
+          "name": "meta.attribute-without-value.html.svelte",
+          "match": "[^\\s/=>\"'<]+",
+          "captures": {
+            "0": {
+              "name": "entity.other.attribute-name.html.svelte"
+            }
+          }
         }
       ]
     },
     "tag_attribute_shorthand": {
       "name": "meta.attribute-shorthand.svelte",
-      "match": "(?<=\\s)(({)\\s*(\\.{3})?([\\w]+)\\s*(}))(?=\\s|\\/?>)",
+      "match": "\\s*(({)\\s*(\\.{3})?([\\w]+)\\s*(}))(?=\\s|\\/?>)",
       "captures": {
         "1": {
           "name": "entity.other.attribute-name.svelte"
