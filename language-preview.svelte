@@ -38,12 +38,13 @@
   <CustoM-ElemenT2000 />
 
   <Class.Attributes
-    id="{id}"
     class="Class"
-    {shorthand}
     boolean
+    id="{id}"
+    {title}
     on:event
-    on:otherEvent={withHandler}
+    on:event={withHandler}
+    on:OTHER_EVENT="{OTHER_EVENT_HANDLER}"
     bind:property={propertyValue}
     bind:propShorthand
     bind:this={Component}
@@ -52,7 +53,7 @@
   <tag-directives
     on:event|preventDefault|stopPropagation|passive|capture|once|self="{handleEvent}"
     on:componentEvent
-    bind:property={propertyValue}
+    bind:property={ propertyValue }
     bind:value
     bind:group={variable}
     bind:this={domNode}
@@ -116,6 +117,10 @@
     color: black;
     background-color: white;
   }
+
+  .class {}
+
+  #id {}
 
   @keyframes -global-my-global-animation-name {
     0% {
