@@ -460,7 +460,7 @@
       "patterns": [
         {
           "name": "meta.attribute.html.svelte",
-          "begin": "([^\\s\"'<>\\/=]+)\\s*(=)\\s*",
+          "begin": "(?<=\\s)([^\\s\"'<>\\/=]+)\\s*(=)\\s*",
           "beginCaptures": {
             "1": {
               "name": "entity.other.attribute-name.html.svelte"
@@ -481,7 +481,7 @@
         },
         {
           "name": "meta.attribute-without-value.html.svelte",
-          "match": "[^\\s/=>\"'<]+",
+          "match": "(?<=\\s)[^\\s/=>\"'<]+",
           "captures": {
             "0": {
               "name": "entity.other.attribute-name.html.svelte"
