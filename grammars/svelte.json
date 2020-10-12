@@ -472,10 +472,10 @@
           "end": "(?!\\G)|(?=\\s|/?>)",
           "patterns": [
             {
-              "include": "#strings"
+              "include": "#svelte_expression"
             },
             {
-              "include": "#svelte_expression"
+              "include": "#strings"
             }
           ]
         },
