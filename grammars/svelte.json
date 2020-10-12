@@ -160,29 +160,6 @@
       ]
     },
     {
-      "name": "meta.tag.html.svelte",
-      "begin": "(<\\/?)([a-z][^\\s<\\/>'\"]*)(?=\\s|\\/?>)",
-      "beginCaptures": {
-        "1": {
-          "name": "punctuation.definition.tag.begin.html"
-        },
-        "2": {
-          "name": "entity.name.tag.html.svelte"
-        }
-      },
-      "end": "\\/?>",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.tag.end.html"
-        }
-      },
-      "patterns": [
-        {
-          "include": "#tag_contents"
-        }
-      ]
-    },
-    {
       "name": "meta.tag.custom-element.html.svelte",
       "begin": "(<\\/?)(\\w[\\w\\d]*(-[\\w\\d]+)+)(?=\\s|\\/?>)",
       "beginCaptures": {
@@ -222,6 +199,29 @@
           "name": "entity.name.type.svelte"
         }
 
+      },
+      "end": "\\/?>",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#tag_contents"
+        }
+      ]
+    },
+    {
+      "name": "meta.tag.html.svelte",
+      "begin": "(<\\/?)([a-z][^\\s<\\/>'\"]*)(?=\\s|\\/?>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.html.svelte"
+        }
       },
       "end": "\\/?>",
       "endCaptures": {
